@@ -1,0 +1,167 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Find a Friend!</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+          
+
+</head>
+<body>
+
+<div class="container">
+	<div class="row">
+	
+
+		<h1 class="center-align">Friend Survey</h1>
+		<div class="divider"></div>
+
+		<div class="input-field col s6">
+			<h5>Name (Required)</h5>
+			<input type="text" class="validate" id="name">
+		</div>
+
+		<div class="input-field col s6">
+			<h5>Link to Photo Image (Required)</h5>
+			<input type="text" class="validate" id="photo">
+		</div>
+
+	<div row>
+		<h5>1. You think the movie Grease is the worst.</h5>
+		<select class="browser-default" id= "q1">
+			<option value="" disabled selected>Choose your option</option>
+			<option value="1">1 (Strongly disagree)</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5 (Strongly agree)</option>
+		</select>
+	</div>
+
+	<div row>
+		<h5>2. You enjoy a Gin and Tonic from time to time.</h5>
+		<select class="browser-default" id= "q2">
+			<option value="" disabled selected>Choose your option</option>
+			<option value="1">1 (Strongly disagree)</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5 (Strongly agree)</option>
+		</select>
+	</div>
+
+	<div row>
+		<h5>3. You would rather watch Gossip Girl.</h5>
+		<select class="browser-default" id= "q3">
+			<option value="" disabled selected>Choose your option</option>
+			<option value="1">1 (Strongly disagree)</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5 (Strongly agree)</option>
+		</select>
+	</div>
+
+	<div row>
+		<h5>4. You like the beach more than the mountains.</h5>
+		<select class="browser-default" id= "q4">
+			<option value="" disabled selected>Choose your option</option>
+			<option value="1">1 (Strongly disagree)</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5 (Strongly agree)</option>
+		</select>
+	</div>
+
+	<div row>
+		<h5>5. You never wear matching socks.</h5>
+		<select class="browser-default" id= "q5">
+			<option value="" disabled selected>Choose your option</option>
+			<option value="1">1 (Strongly disagree)</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5 (Strongly agree)</option>
+		</select>
+	</div>
+
+	<div row>
+		<h5>6. You're cool with listening to Abba.</h5>
+		<select class="browser-default" id= "q6">
+			<option value="" disabled selected>Choose your option</option>
+			<option value="1">1 (Strongly disagree)</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5 (Strongly agree)</option>
+		</select>
+	</div>
+
+	<div row>
+		<h5>7. You're not annoying</h5>
+		<select class="browser-default" id= "q7">
+			<option value="" disabled selected>Choose your option</option>
+			<option value="1">1 (Strongly disagree)</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5 (Strongly agree)</option>
+		</select>
+	</div>
+
+	<div row>
+		<h5>8. You like reading historical fiction.</h5>
+		<select class="browser-default" id= "q8">
+			<option value="" disabled selected>Choose your option</option>
+			<option value="1">1 (Strongly disagree)</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5 (Strongly agree)</option>
+		</select>
+	</div>
+
+	<div row>
+		<h5>9. You put hot sauce on everything.</h5>
+		<select class="browser-default" id= "q9">
+			<option value="" disabled selected>Choose your option</option>
+			<option value="1">1 (Strongly disagree)</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5 (Strongly agree)</option>
+		</select>
+	</div>
+
+	<div row>
+		<h5>10. You eat icecream sandwiches.</h5>
+		<select class="browser-default" id= "q10">
+			<option value="" disabled selected>Choose your option</option>
+			<option value="1">1 (Strongly disagree)</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5 (Strongly agree)</option>
+		</select>
+	</div>
+
+	<br><br>
+		
+	<div class = "row">
+		<p class="center-align">
+			<button type="submit" class="btn btn-primary btn-lg btn-block" id="submit">Submit, new friend!</button>
+		</p>
+	</div>
+
+    <footer class="footer">
+		<p><a href="/api/friends">API Friends List</a> | <a href="https://github.com/lorstevens/friendfinder">GitHub Repo</a></p>
+    </footer>
+
+
+</div>
+
+</body>
+
+
