@@ -20,6 +20,10 @@
 		var newFriendScores = req.body.scores;
 		console.log(newFriendScores)
 
+		for (var i = 0; i <friends.length; i++){
+			console.log(friends[i].scores);
+		}
+
 		//looping through the scores in 
 	// 	friends.forEach(myFunction);
 

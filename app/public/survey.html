@@ -15,7 +15,7 @@
 	<div class="row">
 	
 
-		<h1 class="center-align">Friend Survey</h1>
+		<h1 class="center-align"><span class="teal-text text-lighten-2"><i class="large material-icons">person</i>Friend Survey</span></h1>
 		<div class="divider"></div>
 
 		<div class="input-field col s6">
@@ -27,6 +27,7 @@
 			<h5>Link to Photo Image (Required)</h5>
 			<input type="text" class="validate" id="photo">
 		</div>
+<br><br>
 
 	<div row>
 		<h5>1. You think the movie Grease is the worst.</h5>
@@ -38,7 +39,7 @@
 			<option value="4">4</option>
 			<option value="5">5 (Strongly agree)</option>
 		</select>
-	</div>
+	</div><br>
 
 	<div row>
 		<h5>2. You enjoy a Gin and Tonic from time to time.</h5>
@@ -50,7 +51,7 @@
 			<option value="4">4</option>
 			<option value="5">5 (Strongly agree)</option>
 		</select>
-	</div>
+	</div><br>
 
 	<div row>
 		<h5>3. You would rather watch Gossip Girl.</h5>
@@ -62,7 +63,7 @@
 			<option value="4">4</option>
 			<option value="5">5 (Strongly agree)</option>
 		</select>
-	</div>
+	</div><br>
 
 	<div row>
 		<h5>4. You like the beach more than the mountains.</h5>
@@ -74,7 +75,7 @@
 			<option value="4">4</option>
 			<option value="5">5 (Strongly agree)</option>
 		</select>
-	</div>
+	</div><br>
 
 	<div row>
 		<h5>5. You never wear matching socks.</h5>
@@ -86,7 +87,7 @@
 			<option value="4">4</option>
 			<option value="5">5 (Strongly agree)</option>
 		</select>
-	</div>
+	</div><br>
 
 	<div row>
 		<h5>6. You're cool with listening to Abba.</h5>
@@ -98,7 +99,7 @@
 			<option value="4">4</option>
 			<option value="5">5 (Strongly agree)</option>
 		</select>
-	</div>
+	</div><br>
 
 	<div row>
 		<h5>7. You're not annoying</h5>
@@ -110,7 +111,7 @@
 			<option value="4">4</option>
 			<option value="5">5 (Strongly agree)</option>
 		</select>
-	</div>
+	</div><br>
 
 	<div row>
 		<h5>8. You like reading historical fiction.</h5>
@@ -122,7 +123,7 @@
 			<option value="4">4</option>
 			<option value="5">5 (Strongly agree)</option>
 		</select>
-	</div>
+	</div><br>
 
 	<div row>
 		<h5>9. You put hot sauce on everything.</h5>
@@ -134,7 +135,7 @@
 			<option value="4">4</option>
 			<option value="5">5 (Strongly agree)</option>
 		</select>
-	</div>
+	</div><br>
 
 	<div row>
 		<h5>10. You eat icecream sandwiches.</h5>
@@ -150,59 +151,45 @@
 
 	<br><br>
 		
-	<div class = "row">
-		<p class="center-align">
-			<button type="submit" class="btn btn-primary btn-lg btn-block" id="submit">Submit, new friend!</button>
-		</p>
-	</div>
+
+	<button type="submit" class="btn btn-primary btn-lg btn-block btn-center" id="submit">Submit, new friend!</button>
+
+
+	<br><br>
 
     <footer class="footer">
-		<p><a href="/api/friends">API Friends List</a> | <a href="https://github.com/lorstevens/friendfinder">GitHub Repo</a></p>
+	        <p><a href="/api/friends">API Friends List</a> | <a href="https://github.com/lorstevens/friendfinder">GitHub Repo</a></p>
     </footer>
 
 
 </div>
-
+</div>
 </body>
 
 
-<!-- <div class="modal fade">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class = "friendModal">Modal Friend Info</div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
+<div id="modal1" class="modal">
+	<div class="modal-content">
+		<h4>Closest Friend Match</h4>
+		<div class="divider"></div>
+		<h5 id="match"></h5>
+		<img id="matchPhoto" class="materialboxed" width="650" src="">
+	</div>
+	<div class="modal-footer">
+		<a href="/survey" class="modal-action modal-close waves-effect waves-green btn-flat">Not interested? Try again!</a>
+	</div>
 </div>
- -->
+
 
 
 <script type="text/javascript">
     $("#submit").on("click", function(event) {
       event.preventDefault();
+
      
-  //     var heyFriend = {
-  //     	name: $('#name').val().trim(),
-		// photo: $('#photo').val().trim(),
-		// numbers: [3, 4, 6, 10],
-		// scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(),
-		// $("#q5").val(), $("#q6").val(), $("#q7").val(), $("#q8").val(), $("#q9").val(), $("#q10").val(),]
-  //     }
 
 var heyFriend = {
 				name: $('#name').val().trim(),
 				photo: $('#photo').val().trim(),
-				numbers: [2, 3, 4, 6],
 				scores:[
 					$('#q1').val(),
 					$('#q2').val(),
@@ -223,6 +210,7 @@ var heyFriend = {
 
 //this is AJAX
       $.post(currentURL + "/api/friends", heyFriend, function(data){
+      	  $('#modal1').modal('open');
 
   //     	$('#name').val().trim(),
 		// $('#photo').val().trim(),
