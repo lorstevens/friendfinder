@@ -1,57 +1,54 @@
+var friends = require("../data/friends");
+var comparison = [];
+var countTotal = [];
 
-var friends = require("../data/friends.js");
-var bodyParser = require('body-parser');
-var path = require('path');
-
-
+//routing
 module.exports = function(app) {
 
-	app.get("/api/friends", function(req, res) {
+
+	//api for displaying friends data
+	app.get("/api/friends", function(req,res){
 		res.json(friends);
 	});
 
-	app.post("/api/friends", function(req, res) {
-		
-		var newFriend = req.body // This is every friend
+	app.post("/api/friends", function(req, res){
+
+		var newFriend = req.body // This is new friend
 
 		console.log(newFriend);
 
-		var newFriendScores = req.body.scores // This is the user friend
+		var newFriendScore = req.body.scores; //This is the new friend scores
 
-		console.log(newFriendScores);
+		console.log(newFriendScore);
 
 
-		var bestMatch = {
-			name: "",
-			photo: "",
-			matchDifference: 1000
+		for (var i=0; i<friends.length; i++) {
+			console.log(friends[i].scores)
+
+			var allFriendsScores= friends[i].scores;
+
+			countTotal[i] = 0;
+
+			for (var j=0; j<10; j++) {
+				countTotal[i] += Math.abs(newFriendScore[j]-allFriendsScores[j]);
+				console.log(countTotal[i]);
+			};
 		};
 
-// var difference = 0
+	
+		var bestMatch = countTotal.indexOf(Math.min.apply(Math, countTotal)); //index of the the smallest number
+// console.log(bestMatch);	
 
+	
+		res.json(friends[bestMatch]);
 
-for (var i = 0; i < friends.length; i ++){
-	var difference = 0;
-	for (var j = 0; j < newFriendScores.length; j++){
-		difference += Math.abs(friends[i].scores[j] - newFriendScores[j]);
-	}
-
-	if (difference < bestMatch.matchDifference){
-		bestMatch.matchDifference = difference;
-		bestMatch.name = friends[i].name;
-		bestMatch.photo = friends[i].photo;
-	}
-	console.log(difference);
-	console.log(bestMatch.name);
-
-}
-
-friends.push(newFriend);
-res.json(bestMatch);
-
-});
-
+		//add data to data array
+		friends.push(req.body);
+	});
 };
+
+
+
 
 
 
