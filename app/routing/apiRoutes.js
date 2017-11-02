@@ -17,15 +17,15 @@ module.exports = function(app) {
 		console.log(newFriend);
 
 		var newFriendScores = req.body.scores // This is the user friend
-		
+
 		console.log(newFriendScores);
 
 
-	var bestMatch = {
-	            name: "",
-	            photo: "",
-	            friendDifference: 1000
-	        };
+		var bestMatch = {
+			name: "",
+			photo: "",
+			matchDifference: 1000
+		};
 
 // var difference = 0
 
@@ -36,8 +36,8 @@ for (var i = 0; i < friends.length; i ++){
 		difference += Math.abs(friends[i].scores[j] - newFriendScores[j]);
 	}
 
-	if (difference < bestMatch.friendDifference){
-		bestMatch.friendDifference = difference;
+	if (difference < bestMatch.matchDifference){
+		bestMatch.matchDifference = difference;
 		bestMatch.name = friends[i].name;
 		bestMatch.photo = friends[i].photo;
 	}
@@ -46,10 +46,10 @@ for (var i = 0; i < friends.length; i ++){
 
 }
 
-		friends.push(newFriend);
-		res.json(bestMatch);
+friends.push(newFriend);
+res.json(bestMatch);
 
-			});
+});
 
 };
 
