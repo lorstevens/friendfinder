@@ -1,15 +1,21 @@
 <html>
 <head>
+
+
 	<meta charset="UTF-8">
 	<title>Find a Friend!</title>
+	  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<!--       <script type="text/javascript" src="js/materialize.min.js"></script> -->
+
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
   	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  	<script src="https://code.jquery.com/jquery.js"></script>
           
 
 </head>
 <body>
+
+
 
 <div class="container">
 	<div class="row">
@@ -167,21 +173,21 @@
 </body>
 
 
-<div id="modal1" class="modal">
-	<div class="modal-content">
-		<h4>Closest Friend Match</h4>
-		<div class="divider"></div>
-		<h5 id="match"></h5>
-		<img id="matchPhoto" class="materialboxed" width="650" src="">
+	<div id="modal1" class="modal">
+		<div class="modal-content">
+			<h4>Closest Friend Match</h4>
+			<h5 id="userMatch"></h5>
+			<img id="userMatchImage" class="materialboxed" width="650" src="">
+		</div>
+		<div class="modal-footer">
+			<a href="/survey" class="modal-action modal-close waves-effect waves-green btn-flat">Fill Again!</a>
+			<a href="/" class="modal-action modal-close waves-effect waves-green btn-flat">Exit</a>
+		</div>
 	</div>
-	<div class="modal-footer">
-		<a href="/survey" class="modal-action modal-close waves-effect waves-green btn-flat">Not interested? Try again!</a>
-	</div>
-</div>
-
 
 
 <script type="text/javascript">
+
     $("#submit").on("click", function(event) {
       event.preventDefault();
 
@@ -204,22 +210,28 @@ var heyFriend = {
 				]
 			};
 
-
+// $('#modal1').modal('open');
 
       var currentURL = window.location.origin;
 
 //this is AJAX
       $.post(currentURL + "/api/friends", heyFriend, function(data){
-      	  $('#modal1').modal('open');
 
-  //     	$('#name').val().trim(),
-		// $('#photo').val().trim(),
-		// $("#q1").val(),$("#q2").val(),$("#q3").val(),$("#q4").val(),
-		// $("#q5").val(),$("#q6").val(),$("#q7").val(),$("#q8").val(),$("#q9").val(),$("#q10").val()
+		    	// // Pop open the modal dialog
+      	// 		$('#modal1').modal('open');
+
       })
+      .done(function(data){
+      	$('#userMatch').html("Meet your new bud: " + data.name);
+
+      	console.log(data.name)
+
+		$("#userMatchImage").attr("src", data.photo);
+      	$('#modal1').modal();
+      	$("#modal1").modal('open'); 
 
     });
-
+  })
 
 
   </script>
