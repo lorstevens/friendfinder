@@ -5,7 +5,8 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	
+
+
 
 </head>
 <body>
@@ -13,6 +14,7 @@
 
 	<div class="brand-logo center"> <h1 class="center-align"><span class="teal-text text-lighten-2"><i class="large material-icons">person</i>Friend Finder</h1></span></div>
 
+<div id="sb_widget"></div>
 
 
 	<div class="container">
@@ -38,4 +40,30 @@
 		</div>
 	</footer>
 
-</body>
+	<script src="/SendBird.min.js"></script>
+    <script src="/widget.SendBird.js"></script>
+
+<script>
+
+
+       var sbWidgetToggle = document.getElementById("sb_widget");
+
+       // if (window.location.pathname ==="/MavenQuestionnaire" || window.location.pathname ==="/MaverickQuestionnaire" || window.location.pathname ==="/" )  {
+       //  sbWidgetToggle.hide();    
+       // }
+    
+       // document.querySelector(".btn").addEventListener("click", function(){
+       //     logIn();
+       // });
+       
+      var appId = "FB7BB4B3-4917-4831-B2E0-EB94FB4A4BD7";
+      var userId = "";
+      var nickname = "";
+
+      //WHERE IS "sbWidget" defined??  Is this supposed to read: "sbWidgetToggle"
+      sbWidget.start("FB7BB4B3-4917-4831-B2E0-EB94FB4A4BD7");
+   
+   </script>
+
+   </body>
+   </html>
